@@ -3,6 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
 <title>Mw3 Juggernauts Wave Generator v0.13</title>
+<meta name="description" content="List of all juggernauts waves!">
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
@@ -94,47 +95,48 @@ hr {
 }
 </style>
 <body> <!-- Main Form -->
-<div class="bgimg">
-    <div class="middle">
-	    <h1><b class="glow" style="font-size:35px;font-family: 'Courier New', Courier, monospace;">Mw3 Juggernauts Wave Generator v0.13</b></h1>
-        <select class="dropdown" select id="btnState" onchange="doSomething(this)"> <!-- Select Map -->
-            <option value="0" selected>Select A Map</option>
-			<option value="1">Resistance</option>
-            <option value="2">Village</option>
-            <option value="3">Interchange</option>
-			<option value="4">Underground</option>
-			<option value="5">Dome</option>
-			<option value="6">Mission</option>
-			<option value="7">Seatown</option>
-			<option value="8">Carbon</option>
-			<option value="9">Bootleg</option>
-			<option value="10">Hardhat</option>
-			<option value="11">Fallen</option>
-			<option value="12">Outpost</option>
-			<option value="13">Lockdown</option>
-			<option value="14">Arkaden</option>
-			<option value="15">Downturn</option>
-			<option value="16">Bakaara</option>
-			<option value="17">Piazza</option>
-			<option value="18">Liberation</option>
-			<option value="19">Decommission</option>
-			<option value="20">Gulch</option>
-			<option value="21">Overwatch</option>
-			<option value="22">Black Box</option>
-			<option value="23">Foundation</option>
-			<option value="24">Sanctuary</option>
-			<option value="25">Oasis</option>
-			<option value="26">Terminal</option>
-			<option value="27">Parish</option>
-			<option value="28">Boardwalk</option>
-			<option value="29">Off Shore</option>
-        </select>
-		<p></p>
-		<hr><hr>
-		<p></p>
-		<textarea class="textbox" id="juggernauts" name="juggernauts" rows="15" cols="50" style="overflow:scroll;"></textarea>
+    <div class="bgimg">
+        <div class="middle">
+	        <h1><b class="glow" style="font-size:35px;font-family: 'Courier New', Courier, monospace;">Mw3 Juggernauts Wave Generator v0.13</b></h1>
+            <select class="dropdown" select id="btnState" onchange="doSomething(this)"> <!-- Select Map -->
+                <option value="0" selected>Select A Map</option>
+			    <option value="1">Resistance</option>
+                <option value="2">Village</option>
+                <option value="3">Interchange</option>
+			    <option value="4">Underground</option>
+		    	<option value="5">Dome</option>
+		    	<option value="6">Mission</option>
+		    	<option value="7">Seatown</option>
+		    	<option value="8">Carbon</option>
+		    	<option value="9">Bootleg</option>
+		    	<option value="10">Hardhat</option>
+		    	<option value="11">Fallen</option>
+		    	<option value="12">Outpost</option>
+		    	<option value="13">Lockdown</option>
+		    	<option value="14">Arkaden</option>
+		    	<option value="15">Downturn</option>
+		    	<option value="16">Bakaara</option>
+		    	<option value="17">Piazza</option>
+		    	<option value="18">Liberation</option>
+		    	<option value="19">Decommission</option>
+		    	<option value="20">Gulch</option>
+		    	<option value="21">Overwatch</option>
+		    	<option value="22">Black Box</option>
+		    	<option value="23">Foundation</option>
+		    	<option value="24">Sanctuary</option>
+			    <option value="25">Oasis</option>
+		    	<option value="26">Terminal</option>
+		    	<option value="27">Parish</option>
+		    	<option value="28">Boardwalk</option>
+		    	<option value="29">Off Shore</option>
+            </select>
+		    <p></p>
+		    <hr><hr>
+		    <p></p>
+		    <textarea class="textbox" id="juggernauts" name="juggernauts" rows="15" cols="50" style="overflow:scroll;"></textarea>
+        </div>
     </div>
-</div>
+</body>
 <script> <!-- Form Script -->
 function doSomething(obj)
 {
