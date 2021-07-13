@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<title>Mw3 Juggernauts Wave Generator v0.13</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+<!-- Global IE fix to avoid layout crash when single word size wider than column width -->
+<!--[if IE]><style type="text/css"> body {word-wrap: break-word;}</style><![endif]-->
+</head>
+<style>
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.bgimg {
+    background-image: url('images/background.jpg');
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    color: red;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 20px;
+}
+
+.topleft {
+    position: absolute;
+    top: 0;
+    left: 16px;
+}
+
+.bottomleft {
+    position: absolute;
+    bottom: 0;
+    left: 1px;
+}
+
+.middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+hr {
+    margin: auto;
+    width: 40%;
+}
+
+.ender {
+	position: bottom;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+
+    background-color: black;
+}
+
+.dropdown {
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.textbox {
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.glow {
+  font-size: 80px;
+  color: #168900;
+  text-align: center;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 20px #60FF42, 0 0 30px #39FF14, 0 0 40px #39FF14, 0 0 50px #39FF14, 0 0 60px #39FF14, 0 0 70px #39FF14, 0 0 80px #39FF14;
+  }
+  
+  to {
+      text-shadow: 0 0 10px #60FF42, 0 0 20px #60FF42, 0 0 30px #1DB700, 0 0 40px #1DB700, 0 0 50px #1DB700, 0 0 60px #1DB700, 0 0 70px #1DB700;
+  }
+}
+</style>
+<body> <!-- Main Form -->
+<div class="bgimg">
+    <div class="middle">
+	    <h1><b class="glow" style="font-size:35px;font-family: 'Courier New', Courier, monospace;">Mw3 Juggernauts Wave Generator v0.13</b></h1>
+        <select class="dropdown" select id="btnState" onchange="doSomething(this)"> <!-- Select Map -->
+            <option value="0" selected>Select A Map</option>
+			<option value="1">Resistance</option>
+            <option value="2">Village</option>
+            <option value="3">Interchange</option>
+			<option value="4">Underground</option>
+			<option value="5">Dome</option>
+			<option value="6">Mission</option>
+			<option value="7">Seatown</option>
+			<option value="8">Carbon</option>
+			<option value="9">Bootleg</option>
+			<option value="10">Hardhat</option>
+			<option value="11">Fallen</option>
+			<option value="12">Outpost</option>
+			<option value="13">Lockdown</option>
+			<option value="14">Arkaden</option>
+			<option value="15">Downturn</option>
+			<option value="16">Bakaara</option>
+			<option value="17">Piazza</option>
+			<option value="18">Liberation</option>
+			<option value="19">Decommission</option>
+			<option value="20">Gulch</option>
+			<option value="21">Overwatch</option>
+			<option value="22">Black Box</option>
+			<option value="23">Foundation</option>
+			<option value="24">Sanctuary</option>
+			<option value="25">Oasis</option>
+			<option value="26">Terminal</option>
+			<option value="27">Parish</option>
+			<option value="28">Boardwalk</option>
+			<option value="29">Off Shore</option>
+        </select>
+		<p></p>
+		<hr><hr>
+		<p></p>
+		<textarea class="textbox" id="juggernauts" name="juggernauts" rows="15" cols="50" style="overflow:scroll;"></textarea>
+    </div>
+</div>
+<script> <!-- Form Script -->
+function doSomething(obj)
+{
+    var maxwavecountmultiplier = 255;
+    var btnValue = obj.options[obj.selectedIndex].value;
+    if (btnValue == "State")
+    {
+        //do nothing
+        return;
+    }
+
+    // Get Map Values Here
+	if (btnValue >= 1 && btnValue <= 4)
+	{
+	    // Tier 1
+		var newLine = "\r\n";
+        var juggernauts =
+		"10" + newLine + 
+		"15" + newLine + 
+		"20" + newLine + 
+		"26" + newLine + 
+		"30" + newLine + 
+		"34";
+		
+		// Ev +4
+		var newLine = "\r\n";
+        var startnumber = 34;
+		var skipamount = 4;
+        const waves = [];
+        for (let i = 0; i < maxwavecountmultiplier; i++) {
+            startnumber = startnumber + skipamount;
+            waves[i] = startnumber + newLine;
+        }
+        document.getElementById("juggernauts").innerHTML = juggernauts + newLine + waves.join("");
+	}
+	else if (btnValue >= 4 && btnValue <= 8)
+	{
+	    // Tier 2
+		var newLine = "\r\n";
+        var juggernauts =
+		"9" + newLine + 
+		"12" + newLine + 
+		"18" + newLine + 
+		"21" + newLine + 
+		"27" + newLine + 
+		"33";
+		
+		// Ev +6
+		var newLine = "\r\n";
+        var startnumber = 33;
+		var skipamount = 6;
+        const waves = [];
+        for (let i = 0; i < maxwavecountmultiplier; i++) {
+            startnumber = startnumber + skipamount;
+            waves[i] = startnumber + newLine;
+        }
+        document.getElementById("juggernauts").innerHTML = juggernauts + newLine + waves.join("");
+	}
+	else if (btnValue >= 9 && btnValue <= 12)
+	{
+	    // Tier 3
+		var newLine = "\r\n";
+        var juggernauts =
+		"5" + newLine + 
+		"10" + newLine + 
+		"15" + newLine + 
+		"21" + newLine + 
+		"25" + newLine + 
+		"29";
+		
+		// Ev +4
+        var newLine = "\r\n";
+        var startnumber = 29;
+		var skipamount = 4;
+        const waves = [];
+        for (let i = 0; i < maxwavecountmultiplier; i++) {
+            startnumber = startnumber + skipamount;
+            waves[i] = startnumber + newLine;
+        }
+        document.getElementById("juggernauts").innerHTML = juggernauts + newLine + waves.join("");
+	}
+	else if (btnValue >= 13 && btnValue <= 16)
+	{
+	    // Tier 4
+		var newLine = "\r\n";
+        var juggernauts =
+		"6" + newLine + 
+		"11" + newLine + 
+		"16" + newLine + 
+		"19" + newLine + 
+		"22" + newLine + 
+		"25";
+		
+		// Ev +3
+        var newLine = "\r\n";
+        var startnumber = 25;
+		var skipamount = 3;
+        const waves = [];
+        for (let i = 0; i < maxwavecountmultiplier; i++) {
+            startnumber = startnumber + skipamount;
+            waves[i] = startnumber + newLine;
+        }
+        document.getElementById("juggernauts").innerHTML = juggernauts + newLine + waves.join("");
+	}
+	else if (btnValue >= 17 && btnValue <= 20)
+	{
+	    // Tier 2 - DLC
+		var newLine = "\r\n";
+        var juggernauts =
+		"4" + newLine + 
+		"9" + newLine + 
+		"12" + newLine + 
+		"18" + newLine + 
+		"21" + newLine + 
+		"27" + newLine + 
+		"33";
+		
+		// Ev +4
+        var newLine = "\r\n";
+        var startnumber = 33;
+		var skipamount = 4;
+        const waves = [];
+        for (let i = 0; i < maxwavecountmultiplier; i++) {
+            startnumber = startnumber + skipamount;
+            waves[i] = startnumber + newLine;
+        }
+        document.getElementById("juggernauts").innerHTML = juggernauts + newLine + waves.join("");
+	}
+	else if (btnValue >= 21 && btnValue <= 28)
+	{
+	    // Tier 5 - DLC
+		var newLine = "\r\n";
+        var juggernauts =
+		"6" + newLine + 
+		"11" + newLine + 
+		"16" + newLine + 
+		"19" + newLine + 
+		"22" + newLine + 
+		"25";
+		
+		// Ev +4
+        var newLine = "\r\n";
+        var startnumber = 25;
+		var skipamount = 4;
+        const waves = [];
+        for (let i = 0; i < maxwavecountmultiplier; i++) {
+            startnumber = startnumber + skipamount;
+            waves[i] = startnumber + newLine;
+        }
+        document.getElementById("juggernauts").innerHTML = juggernauts + newLine + waves.join("");
+	}
+	else if (btnValue == 29)
+	{
+	    // Tier 6 - DLC
+		var newLine = "\r\n";
+        var juggernauts =
+		"4" + newLine + 
+		"5" + newLine + 
+		"9" + newLine + 
+		"10" + newLine + 
+		"14" + newLine + 
+		"15" + newLine + 
+		"19" + newLine + 
+		"20" + newLine +
+		"24" + newLine + 
+		"25" + newLine + 
+		"29" + newLine +
+		"30"
+		
+		var newLine = "\r\n";
+        var startnumber = 30;
+		const waves = [];
+        for (let i = 0; i < maxwavecountmultiplier * 5; i++) {
+            startnumber = startnumber + 1;
+    
+            var str = startnumber.toString();
+            var lastLetter = str[str.length - 1];
+            if (lastLetter == 0)
+            {
+                waves[i] = startnumber + newLine;
+            }
+            else if (lastLetter == 4)
+            {
+                waves[i] = startnumber + newLine;
+            }
+            else if (lastLetter == 5)
+            {
+                waves[i] = startnumber + newLine;
+            }
+            else if (lastLetter == 9)
+            {
+               waves[i] = startnumber + newLine;
+            }
+        }
+		
+		// Ev 0th, 4th, 5th, 9th After
+        document.getElementById("juggernauts").innerHTML = juggernauts + newLine + waves.join("");
+	}
+}
+</script>
+<div class="ender"> <!-- Bottom Adress Bar -->
+    <div class="w3-text-white w3-center">
+        <tr>
+            <th>Programmed:</th>
+            <td><i>Sunday, July 12, 2021</i></td>
+            <td><b> |</b></td>
+        </tr>
+        <tr>
+            <th>Created by:</th>
+            <td><a href="http://steamcommunity.com/id/CrypticNight7/">xXCrypticNightXx</a></td> <!-- Page -->
+			<td><b> |</b></td>
+        </tr>
+        <tr>
+            <th>All rights reserved.</th>
+            <td></a></td> <!-- http://statistics.006.free-counters.co.uk/?count=generator01 -->
+        </tr>
+	</div>
+</div></html>
